@@ -1,0 +1,41 @@
+//请在项目根目录的build.gradle文件的顶部加入下面这行代码，使该文件的配置能被引用
+//apply from:"config.gradle"
+
+ext {
+    //你可以在模块的build文件中使用如下格式代码来引用此文件内容：
+    //compileSdkVersion rootProject.ext.android.compileSdkVersion
+    //buildToolsVersion rootProject.ext.android.buildToolsVersion
+    //applicationId rootProject.ext.android.applicationId
+    //minSdkVersion rootProject.ext.android.minSdkVersion
+    //targetSdkVersion rootProject.ext.android.targetSdkVersion
+    //versionCode rootProject.ext.android.versionCode
+    //versionName rootProject.ext.android.versionName
+    //注意：编译版本（compileSdkVersion）>= 目标sdk版本（targetSdkVersion）
+    android = [
+            compileSdkVersion      : 28,
+            buildToolsVersion      : "29.0.2",
+            applicationId          : "com.kcforandroid.androidmvparch.app",
+            minSdkVersion          : 19,//android 4.4
+            targetSdkVersion       : 28,//android 9.0
+            versionCode            : 1,
+            versionName            : "1.0.0"
+    ]
+
+    third_part = [
+        greendao_schemaVersion     : 1
+    ]
+
+    dependVersion = [
+            androidx    : "1.0.2",
+    ]
+
+    //你可以在模块的build文件中使用如下格式代码依赖库：
+    //rootProject.ext.dependencies.androidx
+    //或者
+    //rootProject.ext.dependencies["androidx"]
+    //注意：带”-“的名称必须以双引号包围，否则会报错。
+    dependencies = [
+            //compileSdkVersion 28+使用的support库
+            androidx                : "androidx.appcompat:appcompat:${dependVersion.androidx}",
+    ]
+}
